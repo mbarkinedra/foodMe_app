@@ -1,6 +1,8 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_me/presentation/pages/menuTap/language.dart';
+import 'package:food_me/presentation/pages/menuTap/notificationPage.dart';
 
 import '../../../../config/appColor.dart';
 import '../../../widgets/customItemProfile.dart';
@@ -9,7 +11,7 @@ import '../../../widgets/customNavBar.dart';
 import '../account/accountPage.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -95,24 +97,42 @@ class _ProfilePageState extends State<ProfilePage> {
                       Divider(
                         thickness: 1,
                       ),
-                      CustomItemProfile(
-                        image: "asset/images/settings.png",
-                        text: 'Settings',
-                        color: AppColor.primaryBlue,
-                        fontSize: 20,
-                      //  colorImage: AppColor.primaryBlue,
-                        colorBack: AppColor.greyBackGroundProfile,
+                      GestureDetector(
+
+                          onTap: (){ Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LanguagePage()),
+                          );
+
+                        },
+                        child: CustomItemProfile(
+                          image: "asset/images/settings.png",
+                          text: 'Settings',
+                          color: AppColor.primaryBlue,
+                          fontSize: 20,
+                        //  colorImage: AppColor.primaryBlue,
+                          colorBack: AppColor.greyBackGroundProfile,
+                        ),
                       ),
                       Divider(
                         thickness: 1,
                       ),
-                      CustomItemProfile(
-                        image: 'asset/images/langage.png',
-                        text: 'Language',
-                        color: AppColor.primaryBlue,
-                        fontSize: 20,
-                       // colorImage: AppColor.primaryBlue,
-                        colorBack: AppColor.greyBackGroundProfile,
+                      GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => NotificatinPage()),
+      );
+    },
+
+    child: CustomItemProfile(
+                          image: 'asset/images/langage.png',
+                          text: 'Language',
+                          color: AppColor.primaryBlue,
+                          fontSize: 20,
+                         // colorImage: AppColor.primaryBlue,
+                          colorBack: AppColor.greyBackGroundProfile,
+                        ),
                       ),
                       Divider(
                         thickness: 1,

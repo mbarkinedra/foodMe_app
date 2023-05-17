@@ -7,7 +7,7 @@ import 'customText.dart';
 
 class CustomOffer extends StatelessWidget {
   const CustomOffer({
-    Key? key,
+    Key key,
   }) : super(key: key);
 
   @override

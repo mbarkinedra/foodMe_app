@@ -7,7 +7,7 @@ import 'package:food_me/presentation/widgets/customOffer.dart';
 import '../../widgets/customNavBar.dart';
 
 class OfferPage extends StatefulWidget {
-  const OfferPage({Key? key}) : super(key: key);
+  const OfferPage({Key key}) : super(key: key);
 
   @override
   State<OfferPage> createState() => _OfferPageState();

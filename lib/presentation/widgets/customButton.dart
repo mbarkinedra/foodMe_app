@@ -1,27 +1,27 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomButton extends StatelessWidget {
-  final Color? color;
+  final Color color;
   final String text;
-  final IconData? icon;
+  final IconData icon;
   final String image;
-  final Color? imageColor;
-  final double? width ;
-  final double? heightContainer;
+  final Color imageColor;
+  final double width ;
+  final double heightContainer;
   final Radius borderRduis;
   final Radius borderRaduis2;
   final Color backgroundColor;
-  final double? widthContainer;
+  final double widthContainer;
    final double fontSize;
    final Color textColor;
    final Function function;
    final double padding;
 
-  const CustomButton({Key? key,  this.color, required this.text, this.icon,required this.image,
+  const CustomButton({Key key,  this.color, @required this.text, this.icon,@required this.image,
      this.width,  this.heightContainer,
-    required this.borderRduis, required this.borderRaduis2,
-    required this.backgroundColor,  this.widthContainer, required this.imageColor,
-    required this.fontSize, required this.textColor, required this.function, required this.padding}) : super(key: key);
+    @required this.borderRduis, @required this.borderRaduis2,
+    @required this.backgroundColor,  this.widthContainer, @required this.imageColor,
+    @ required this.fontSize, @required this.textColor, @required this.function, @required this.padding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

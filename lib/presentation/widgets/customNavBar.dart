@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../config/appColor.dart';
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({Key? key}) : super(key: key);
+  const CustomNavBar({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

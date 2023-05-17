@@ -8,7 +8,7 @@ import 'customImage.dart';
 import 'customText.dart';
 
 class CustomNavBarDelivery extends StatelessWidget {
-  const CustomNavBarDelivery({Key? key}) : super(key: key);
+  const CustomNavBarDelivery({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../config/appColor.dart';
 
 class CustomDetailsFood extends StatelessWidget {
-  const CustomDetailsFood({Key? key}) : super(key: key);
+  const CustomDetailsFood({Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
     return Card(

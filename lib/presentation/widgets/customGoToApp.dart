@@ -7,7 +7,7 @@ import 'customImage.dart';
 import 'customText.dart';
 
 class CustomGotToApp extends StatelessWidget {
-  const CustomGotToApp({Key? key}) : super(key: key);
+  const CustomGotToApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

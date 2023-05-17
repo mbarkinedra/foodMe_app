@@ -9,7 +9,7 @@ import '../../../config/appColor.dart';
 import '../../widgets/customText.dart';
 
 class HomeDetailPage extends StatelessWidget {
-  const HomeDetailPage({Key? key}) : super(key: key);
+  const HomeDetailPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

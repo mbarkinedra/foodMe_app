@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_me/presentation/widgets/customBtn.dart';
 
-import 'customButton.dart';
-import 'customButton1.dart';
 
 class BottomSheetFilter extends StatefulWidget {
   @override
@@ -12,7 +10,7 @@ class BottomSheetFilter extends StatefulWidget {
 class _BottomSheetFilterState extends State<BottomSheetFilter> {
   @override
   Widget build(BuildContext context) {
-    String? selectedValue = "DeviceType";
+    String selectedValue = "DeviceType";
     List<String> options = ['Option 1', 'Option 2', 'Option 3'];
     Size _size = MediaQuery.of(context).size;
     return 
@@ -49,9 +47,9 @@ class _BottomSheetFilterState extends State<BottomSheetFilter> {
                             //  value: logic.city,
                             iconSize: 24,
                             elevation: 16,
-                            onChanged: (String? newValue) {
+                            onChanged: (String newValue) {
                               setState(() {
-                                selectedValue = newValue!;
+                                selectedValue = newValue;
                               });
                             },
                             items: options.map<DropdownMenuItem<String>>(
@@ -81,9 +79,9 @@ class _BottomSheetFilterState extends State<BottomSheetFilter> {
                             //  value: logic.city,
                             iconSize: 24,
                             elevation: 16,
-                            onChanged: (String? newValue) {
+                            onChanged: (String newValue) {
                               setState(() {
-                                selectedValue = newValue!;
+                                selectedValue = newValue;
                               });
                             },
                             items: options.map<DropdownMenuItem<String>>(
@@ -132,9 +130,9 @@ class _BottomSheetFilterState extends State<BottomSheetFilter> {
                         //  value: logic.city,
                           iconSize: 24,
                           elevation: 16,
-                     onChanged: (String? newValue) {
+                     onChanged: (String newValue) {
                        setState(() {
-                         selectedValue = newValue!;
+                         selectedValue = newValue;
                        });
                      },
                           items: options.map<DropdownMenuItem<String>>(

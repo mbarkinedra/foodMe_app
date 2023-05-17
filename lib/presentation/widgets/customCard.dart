@@ -7,11 +7,11 @@ class CustomCard extends StatelessWidget {
   final Color cardColor;
   final String image;
   final String deliveryImage;
-  final double? size;
+  final double size;
   final Widget titleText;
   final Widget kmText;
-  final Widget? title3Text;
-  final Widget? title2Text;
+  final Widget title3Text;
+  final Widget  title2Text;
   final Widget star;
   final Widget coeur;
   final Widget btn1,
@@ -27,28 +27,28 @@ class CustomCard extends StatelessWidget {
       viewAllText;
 
   const CustomCard({
-    Key? key,
-    required this.image,
-    required this.star,
-    required this.cardColor,
-    required this.titleText,
-    required this.kmText,
+    Key key,
+    @required this.image,
+    @required this.star,
+   @ required this.cardColor,
+    @required this.titleText,
+    @required this.kmText,
     this.title3Text,
     this.title2Text,
-    required this.coeur,
-    required this.btn1,
-    required this.btn2,
-    required this.btn3,
+    @required this.coeur,
+    @required this.btn1,
+   @ required this.btn2,
+   @ required this.btn3,
     this.size,
-    required this.deliveryImage,
-    required this.deliveryTitle,
-    required this.deliveryEvaluation,
-    required this.textTemps,
-    required this.textSar,
-    required this.textTemps2,
-    required this.tempsImage,
-    required this.btnCard,
-    required this.viewAllText,
+    @required this.deliveryImage,
+   @ required this.deliveryTitle,
+    @required this.deliveryEvaluation,
+   @ required this.textTemps,
+   @ required this.textSar,
+   @ required this.textTemps2,
+   @ required this.tempsImage,
+   @ required this.btnCard,
+   @ required this.viewAllText,
   }) : super(key: key);
 
   @override

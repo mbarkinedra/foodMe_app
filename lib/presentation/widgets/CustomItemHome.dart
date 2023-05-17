@@ -4,7 +4,7 @@ import '../../config/appColor.dart';
 
 
 class MyHomeItem extends StatelessWidget {
-  late final Size size;
+    Size size;
 
   @override
   Widget build(BuildContext context) {

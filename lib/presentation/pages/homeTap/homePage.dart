@@ -13,9 +13,10 @@ import '../../widgets/customFilter.dart';
 import '../discoverTap/discoverPage.dart';
 import '../menuTap/profile/profilePage.dart';
 import '../offersTap/offerPage.dart';
+import 'filtre.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -150,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                 CustomButton(
                   function: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => BottomSheetFilter()));
+                        builder: (context) => FilterByChanged()));
                   },
                   text: "Filter by",
                   image: "asset/images/fleche.png",

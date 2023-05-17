@@ -10,20 +10,20 @@ class CustomItemProfile extends StatelessWidget {
   final Color colorBack;
  // final Color colorImage;
   final double fontSize;
-  final String? fontFamily;
-  final FontWeight? fontWeight;
+  final String fontFamily;
+  final FontWeight fontWeight;
   final String image;
 
   const CustomItemProfile(
-      {Key? key,
+      {Key key,
 
-      required this.text,
-      required this.color,
-      required this.fontSize,
+      @required this.text,
+     @ required this.color,
+      @required this.fontSize,
       this.fontFamily,
       this.fontWeight,
-      required this.image,
-        required this.colorBack
+      @required this.image,
+       @ required this.colorBack
       })
       : super(key: key);
 
