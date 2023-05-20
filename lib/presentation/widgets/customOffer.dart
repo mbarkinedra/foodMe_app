@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../config/appColor.dart';
 import 'customBtn.dart';
@@ -13,10 +14,11 @@ class CustomOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8,left: 8),
-      child: Card(
-        color: AppColor.greyCard,
-        clipBehavior: Clip.antiAlias,
+      padding: const EdgeInsets.only(right: 15, left: 15),
+      child: Container(
+        // color: AppColor.greyCard,
+        decoration: BoxDecoration(
+            color: AppColor.greyCard, borderRadius: BorderRadius.circular(8.0)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,13 +50,21 @@ class CustomOffer extends StatelessWidget {
                             fontFamily: 'Tajawal'),
                       ),
                       Spacer(),
-                      Row(
-                        children: [
-                          Image.asset("asset/images/star.png"),
-                          Image.asset("asset/images/star.png"),
-                          Image.asset("asset/images/star.png"),
-                          Image.asset("asset/images/star.png")
-                        ],
+                      RatingBar.builder(
+                        initialRating: 3,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemSize: 15,
+                        itemCount: 5,
+                        itemPadding: EdgeInsets.symmetric(horizontal: 3.0),
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {
+                          print(rating);
+                        },
                       )
                     ],
                   ),
@@ -63,52 +73,70 @@ class CustomOffer extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      CustomBtn(
-                        backColor: AppColor.btnColor,
-                        raduis: 3,
-                        function: () {},
-                        text: CustomText(
-                          color: AppColor.primaryBlue,
-                          fontSize: 10,
-                          title: 'Lunch',
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .15,
+                        height: MediaQuery.of(context).size.height * .03,
+                        child: CustomBtn(
+                          backColor: AppColor.btnColor,
+                          raduis: 3,
+                          function: () {},
+                          text: CustomText(
+                            color: AppColor.primaryBlue,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Tajawal",
+                            title: 'Lunch',
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      CustomBtn(
-                        backColor: AppColor.btnColor,
-                        raduis: 3,
-                        function: () {},
-                        text: CustomText(
-                          color: AppColor.primaryBlue,
-                          fontSize: 10,
-                          title: 'Dinner',
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .15,
+                        height: MediaQuery.of(context).size.height * .03,
+                        child: CustomBtn(
+                          backColor: AppColor.btnColor,
+                          raduis: 3,
+                          function: () {},
+                          text: CustomText(
+                            color: AppColor.primaryBlue,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Tajawal",
+                            fontSize: 10,
+                            title: 'Dinner',
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      CustomBtn(
-                        backColor: AppColor.btnColor,
-                        raduis: 3,
-                        function: () {},
-                        text: CustomText(
-                          color: AppColor.primaryBlue,
-                          fontSize: 10,
-                          title: 'Italian',
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .15,
+                        height: MediaQuery.of(context).size.height * .03,
+                        child: CustomBtn(
+                          backColor: AppColor.btnColor,
+                          raduis: 3,
+                          function: () {},
+                          text: CustomText(
+                            color: AppColor.primaryBlue,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Tajawal",
+                            title: 'Italian',
+                          ),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Row(
                     children: [
                       const Icon(
-                        Icons.access_time_rounded,
-                        color: Colors.black,
+                        Icons.access_time_filled_outlined,
+                        color: Color.fromRGBO(15, 37, 70, 1),
                         size: 14,
                       ),
                       SizedBox(
@@ -117,21 +145,28 @@ class CustomOffer extends StatelessWidget {
                       Text(
                         'Open',
                         style: TextStyle(
-                            color: AppColor.secondaryGreen, fontSize: 10),
+                            color: AppColor.secondaryGreen,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10),
                       ),
                       Text(
-                        " ⋅ Closes 11 PM ",
-                        style:
-                            TextStyle(color: AppColor.primaryBlue, fontSize: 10),
+                        " ⋅ Closes  ",
+                        style: TextStyle(
+                            color: AppColor.primaryBlue,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10),
                       ),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4),
                           child: Text(
-                            "12",
+                            "12 PM",
                             softWrap: true,
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(0.6)),
+                            style: TextStyle(
+                                color: AppColor.primaryBlue,
+                                fontFamily: "Tajawaal",
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 4,
                           ),
@@ -139,18 +174,20 @@ class CustomOffer extends StatelessWidget {
                       ),
                       const Icon(
                         Icons.location_on,
-                        color: Colors.grey,
+                        color: Color.fromRGBO(15, 37, 70, 1),
                         size: 16,
                       ),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4),
                           child: Text(
-                            "soussse" + "tunis",
+                            "soussse" " , " "tunis",
                             softWrap: true,
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(0.6)),
-                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: AppColor.primaryBlue,
+                                fontFamily: "Tajawaal",
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500),                            overflow: TextOverflow.ellipsis,
                             maxLines: 4,
                           ),
                         ),
@@ -158,7 +195,7 @@ class CustomOffer extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                 ],
               ),

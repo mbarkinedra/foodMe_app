@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_me/presentation/pages/Home.dart';
 import 'package:food_me/presentation/pages/binding/binding.dart';
 import 'package:food_me/presentation/pages/homeTap/homePage.dart';
 import 'package:food_me/presentation/pages/menuTap/notificationPage.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialBinding: AllBindings(),
       initialRoute: '/',
       routes: {
-        '/': (context)=> HomePage(),
+        '/': (context)=> HomeScreen(),
       },
     );
   }

@@ -20,7 +20,8 @@ class CustomDiscoverDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Meat Pizza With Chicken..',
+                'Meat Pizza With Chicken..hhhhhhhhhhhhhhhhhhhhhhhhhh',
+               maxLines: 2,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 17,

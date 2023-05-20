@@ -8,6 +8,8 @@ class AppColor {
   static Color btnColor =HexColor("#DCE0E4");
   static Color secondaryGreen =HexColor("#4FBF74");
   static Color secondaryBlue =HexColor("#3486B3");
+  static Color offreBlue =HexColor("#172B4D");
+
   static Color blackRussian =HexColor("#00001A");
   static Color greyProfile =HexColor("#EBEBEB");
   static Color greyBackGroundProfile =HexColor("#F5F5F5");

@@ -12,13 +12,42 @@ class FilterByChanged extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Text(
-            "Filter by",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-          )),
+      appBar: AppBar(title:  Row(
+        children: [
+          Center(
+            child: Text(
+              'Filtre By',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: AppColor.primaryBlue,
+                  fontFamily: 'Tajawal'),
+
+            ),
+          ),
+          Spacer(),
+          GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Text(
+              'Reset',
+              textAlign: TextAlign.left,
+
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: AppColor.primaryBlue,
+                  fontFamily: 'Tajawal'),
+            ),
+          ),
+        ],
+      ),
+          iconTheme: IconThemeData(color: AppColor.primaryBlue),
+
+          backgroundColor: Colors.white),
+
       body: Padding(
         padding: const EdgeInsets.only(right: 20.0, left: 20),
         child: SingleChildScrollView(
@@ -26,6 +55,7 @@ class FilterByChanged extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 20,),
 
             FilterListItem(
               onClick: () {},

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../config/appColor.dart';
 import 'customBtn.dart';
@@ -13,13 +14,16 @@ class CustomGotToApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         color: AppColor.greyCard,
-        child: Padding(
-            padding: EdgeInsets.all(5),
-            child: Column(children: [
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Row(
                 children: [
                   Image.asset("asset/images/pasta.png"),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
                         title: 'La Casa Pasta',
@@ -28,9 +32,21 @@ class CustomGotToApp extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          CustomImage(
-                            image: "asset/images/star.png",
-                            imageColor: AppColor.primaryYellow,
+                          RatingBar.builder(
+                            initialRating: 3,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemSize: 12,
+                            itemCount: 5,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                            itemBuilder: (context, _) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                           SizedBox(
                             width: 10,
@@ -38,19 +54,17 @@ class CustomGotToApp extends StatelessWidget {
                           CustomText(
                             title: '2 km',
                             fontSize: 16,
+                            fontWeight: FontWeight.w400,
                             color: AppColor.primaryBlue,
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 110,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).size.height * .01),
-                    child: Image.asset('asset/images/coeur.png'),
+                  Spacer(),
+                  Icon(
+                    Icons.favorite_border,
+                    color: AppColor.primaryBlue,
                   ),
                 ],
               ),
@@ -60,7 +74,7 @@ class CustomGotToApp extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .1,
+                    width: MediaQuery.of(context).size.width * .15,
                     height: MediaQuery.of(context).size.height * .03,
                     child: CustomBtn(
                       backColor: AppColor.btnColor,
@@ -77,7 +91,7 @@ class CustomGotToApp extends StatelessWidget {
                     width: 10,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .1,
+                    width: MediaQuery.of(context).size.width * .15,
                     height: MediaQuery.of(context).size.height * .03,
                     child: CustomBtn(
                       backColor: AppColor.btnColor,
@@ -94,7 +108,7 @@ class CustomGotToApp extends StatelessWidget {
                     width: 10,
                   ),
                   SizedBox(
-                      width: MediaQuery.of(context).size.width * .1,
+                      width: MediaQuery.of(context).size.width * .15,
                       height: MediaQuery.of(context).size.height * .03,
                       child: CustomBtn(
                         backColor: AppColor.btnColor,
@@ -114,8 +128,8 @@ class CustomGotToApp extends StatelessWidget {
               Row(
                 children: [
                   const Icon(
-                    Icons.access_time_rounded,
-                    color: Colors.black,
+                    Icons.access_time_filled_outlined,
+                    color: Color.fromRGBO(15, 37, 70, 1),
                     size: 14,
                   ),
                   SizedBox(
@@ -123,12 +137,29 @@ class CustomGotToApp extends StatelessWidget {
                   ),
                   Text(
                     'Open',
-                    style:
-                        TextStyle(color: AppColor.secondaryGreen, fontSize: 10),
+                    style: TextStyle(
+                      color: AppColor.secondaryGreen,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Tajawal",
+                    ),
                   ),
                   Text(
-                    " ⋅ Closes 11 PM ",
-                    style: TextStyle(color: AppColor.primaryBlue, fontSize: 10),
+                    " ⋅ Closes ",
+                    style: TextStyle(
+                        color: AppColor.primaryBlue,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Tajawal",
+                        fontSize: 10),
+                  ),
+                  Text(
+                    " 11 PM ",
+                    style: TextStyle(
+                      color: AppColor.primaryBlue,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Tajawal",
+                    ),
                   ),
                 ],
               ),
@@ -141,7 +172,7 @@ class CustomGotToApp extends StatelessWidget {
                   // color: AppColor.primaryBlue,
                   const Icon(
                     Icons.location_on,
-                    color: Colors.black,
+                    color: Color.fromRGBO(15, 37, 70, 1),
                     size: 14,
                   ),
                   SizedBox(
@@ -151,6 +182,7 @@ class CustomGotToApp extends StatelessWidget {
                     "6554 Al Wadi, Al Olaya, Riyadh 12211- 3511, Saudi ...",
                     style: TextStyle(
                       color: AppColor.primaryBlue,
+                      fontWeight: FontWeight.w300,
                       fontSize: 10,
                     ),
                   ),
@@ -165,7 +197,7 @@ class CustomGotToApp extends StatelessWidget {
                   // color: AppColor.primaryBlue,
                   const Icon(
                     Icons.phone,
-                    color: Colors.black,
+                    color: Color.fromRGBO(15, 37, 70, 1),
                     size: 14,
                   ),
                   SizedBox(
@@ -175,13 +207,14 @@ class CustomGotToApp extends StatelessWidget {
                     "+966 9200 12111",
                     style: TextStyle(
                       color: AppColor.primaryBlue,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Tajawal",
                       fontSize: 10,
                     ),
                   ),
                 ],
               ),
-
-
-            ])));
+              SizedBox(height: 20,)
+            ]));
   }
 }

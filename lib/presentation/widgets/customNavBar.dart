@@ -11,7 +11,7 @@ class CustomNavBar extends StatelessWidget {
     return
       Container(
       width: 428,
-      height: 65,
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow:

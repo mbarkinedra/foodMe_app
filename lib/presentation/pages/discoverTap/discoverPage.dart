@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:food_me/config/appColor.dart';
 
 import '../../widgets/customDescoverDetails.dart';
 
@@ -19,7 +20,7 @@ class DiscoverPage extends StatelessWidget {
         title: Text("Discover"),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 8,right: 8),
+        padding: const EdgeInsets.only(left: 16,right: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ class DiscoverPage extends StatelessWidget {
             Text(
               'Nearby',
               style: TextStyle(
-                  color: Colors.black,
+                  color: AppColor.primaryBlue,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Tajawal'),
@@ -75,9 +76,9 @@ class DiscoverPage extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Nearby',
+              'Recommended for you',
               style: TextStyle(
-                  color: Colors.black,
+                  color: AppColor.primaryBlue,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Tajawal'),

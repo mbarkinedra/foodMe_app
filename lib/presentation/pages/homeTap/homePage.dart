@@ -10,6 +10,7 @@ import 'package:food_me/presentation/widgets/customText.dart';
 
 import '../../../config/appColor.dart';
 import '../../widgets/customFilter.dart';
+import '../../widgets/customSortBy.dart';
 import '../discoverTap/discoverPage.dart';
 import '../menuTap/profile/profilePage.dart';
 import '../offersTap/offerPage.dart';
@@ -25,37 +26,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    switch (_selectedIndex) {
-      case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DiscoverPage()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => OfferPage()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ProfilePage()),
-        );
-        break;
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -133,13 +104,27 @@ class _HomePageState extends State<HomePage> {
             Row(
               children: [
                 CustomButton(
-                  function: () {},
-                  text: "Sort by",
+                  function: () {
+                    showModalBottomSheet(
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        // <-- SEE HERE
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(25.0),
+                          bottomRight: Radius.circular(25.0),
+                        ),
+                      ),
+                      builder: (context) {
+                        return SizedBox(height: 300, child: CustomSortBy());
+                      },
+                    );
+                  },
+                  text: "Sort By",
                   image: "asset/images/fleche.png",
                   borderRduis: Radius.circular(6),
                   borderRaduis2: Radius.circular(6),
                   backgroundColor: AppColor.greyCard,
-                  widthContainer: MediaQuery.of(context).size.width * .3,
+                  widthContainer: MediaQuery.of(context).size.width * .35,
                   imageColor: AppColor.primaryBlue,
                   fontSize: 16,
                   textColor: AppColor.primaryBlue,
@@ -150,8 +135,21 @@ class _HomePageState extends State<HomePage> {
                 ),
                 CustomButton(
                   function: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FilterByChanged()));
+                    showModalBottomSheet(
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        // <-- SEE HERE
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(25.0),
+                          bottomRight: Radius.circular(25.0),
+                        ),
+                      ),
+                      builder: (context) {
+                        return SizedBox(
+                            // height: 400,
+                            child: FilterByChanged());
+                      },
+                    );
                   },
                   text: "Filter by",
                   image: "asset/images/fleche.png",
@@ -166,19 +164,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 20,
+            ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => HomeDetailPage()),
                 );
               },
-              child: Padding(
-                padding: const EdgeInsets.all(8),
+              child: Expanded(
                 child: ListView.builder(
                   itemCount: 10,
                   shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) => CustomCard(
+                  itemBuilder: (context, int index) => CustomCard(
                     image: "asset/images/pasta.png",
                     star: CustomImage(
                       image: "asset/images/star.png",
@@ -188,6 +188,8 @@ class _HomePageState extends State<HomePage> {
                     titleText: CustomText(
                       title: 'La Casa Pasta',
                       fontSize: 16,
+                      fontFamily: "Tajawal",
+                      fontWeight: FontWeight.w700,
                       color: Colors.black,
                     ),
                     kmText: CustomText(
@@ -235,26 +237,33 @@ class _HomePageState extends State<HomePage> {
                     deliveryImage: 'asset/images/delivery.png',
                     deliveryTitle: CustomText(
                       title: 'Jahez',
+                      fontFamily: "Tajawal",
+                      fontWeight: FontWeight.w500,
                       fontSize: 20,
                       color: Colors.black,
                     ),
                     deliveryEvaluation: CustomText(
                       title: 'Best deal',
                       fontSize: 12,
+                      fontFamily: "Tajawal",
+                      fontWeight: FontWeight.w700,
                       color: AppColor.secondaryGreen,
                     ),
                     textTemps: CustomText(
                       title: '0.00',
                       fontSize: 16,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                     textSar: CustomText(
                       title: 'Sar',
                       fontSize: 12,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                     textTemps2: CustomText(
                       title: '35 min.',
+                      fontWeight: FontWeight.w500,
                       fontSize: 16,
                       color: Colors.black,
                     ),
@@ -265,8 +274,8 @@ class _HomePageState extends State<HomePage> {
                     btnCard: CustomButton(
                       function: () {
                         print("object");
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => HomeDetailPage()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HomeDetailPage()));
                       },
                       text: "Go to app",
                       image: "asset/images/go.png",
@@ -281,6 +290,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     viewAllText: CustomText(
                       title: 'View all deals (4)',
+                      fontWeight: FontWeight.w400,
                       fontSize: 12,
                       color: AppColor.secondaryBlue,
                     ),
@@ -291,56 +301,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       )),
-      bottomNavigationBar: CustomNavigationBar(
-        iconSize: 30.0,
-        selectedColor: Color(0xff040307),
-        strokeColor: Color(0x30040307),
-        backgroundColor: AppColor.primaryBlue,
-        items: [
-          CustomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            title: Text(
-              "Search",
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-          CustomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('asset/images/discover.png'),
-              color: Colors.white,
-            ),
-            title: Text(
-              "Discover",
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-          CustomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('asset/images/offer.png'),
-              color: Colors.white,
-            ),
-            title: Text(
-              "Offers",
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-          CustomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('asset/images/menu.png'),
-              color: Colors.white,
-            ),
-            title: Text(
-              "Menu",
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
     );
   }
 }
